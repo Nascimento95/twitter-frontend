@@ -43,7 +43,7 @@ const FormSignup = () => {
             })
         })   
         const user = await signupResponse.json()
-        navigate("/ddd")/* après le signup on envoie l'utilisateur sur la page que eloi fait*/
+        navigate("/homePage")/* après le signup on envoie l'utilisateur sur la page que eloi fait*/
         if (user.error) {
             alert(user.error)
             return
