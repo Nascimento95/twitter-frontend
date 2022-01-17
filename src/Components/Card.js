@@ -1,11 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import styled from 'styled-components';
+
 const Card = () => {
     return (
       <div className="card">
-        <floatLeftDiv>
-
         <img style={{height:"210px",width: "100%"}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTan4BcwLXycNnmGnOopb2IAw1u9zSxNMvQew&usqp=CAU" className="card-img-top" alt="picture_profile"/>
         <div className="card-body">
         <button >Edit profile</button>
@@ -27,11 +25,9 @@ const Card = () => {
             <Link to="/" ><p className='mx-2'>Like</p></Link>
           </div>
         </div>
-        </floatLeftDiv>
+        
       </div>
     );
 };
-// const floatLeftDiv = styled.div`
-//     position:absolute
-// `
+
 export default Card;
