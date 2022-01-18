@@ -8,7 +8,7 @@ const Nav = styled.div`
     background-color: rgba(252, 252, 252, 0.94);
     position: fixed; /* Set the navbar to fixed position */
     top: 0; /* Position the navbar at the top of the page */
-    width: 75%; /* Full width */
+    width: 85%; /* Full width */
     height: 50px;
     
     .titlenav{
@@ -38,7 +38,7 @@ const Nav = styled.div`
         background-color: white;
     }
     input{
-        width : 50%;
+        width : 30%;
         border-width: 1px;
         border-style:solid solid solid none ;
         border-color:rgb(29, 155, 240);
@@ -50,22 +50,21 @@ const Nav = styled.div`
     }
 `
 
-const NavTopFixe = ({title, tweet}) => {
+const NavTopHome = () => {
     return (
         <Nav>
-            <div className='titlenav'>
-                <h5> {title} </h5>
-                <p> {tweet} </p>
-            </div>
-            <div className='iconinput'>
+        <div className='titlenav'>
+            <h5> Home </h5>
+        </div>
+        <div className='iconinput'>
 
-            </div>
-            <input 
-            type="text"
-            placeholder='Search Twitter'
-            />
-        </Nav>
+        </div>
+        <input 
+        type="text"
+        placeholder='Search Twitter'
+        />
+    </Nav>
     );
 };
 
-export default NavTopFixe;
+export default NavTopHome;
