@@ -54,13 +54,12 @@ const Nav = styled.div`
     }
 `
 
-const NavTopFixe = () => {
+const NavTopFixe = ({title,tweet}) => {
     return (
         <Nav>
             <div className='titlenav'>
-           
-                <h5>Comar</h5> 
-                <p>0tweet</p>
+                <h5>{title}</h5> 
+                <p>{tweet}</p>
             </div>
             <div className='iconinput'>
 
