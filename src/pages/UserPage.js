@@ -20,13 +20,12 @@ const UserPage = () => {
                         <Card />
                     </MarginCard>                                          
             <NavTopFixe/>
-                   <h5>Comar nas</h5>
-                        <p>0tweet</p>
-                        <h5>Comar nas</h5>
-                        <p>0tweet</p>
-                        <h5>Comar nas</h5>
-                        <p>0tweet</p>
-                    
+                    <h5>Comar nas</h5>
+                    <p>0tweet</p>
+                    <h5>Comar nas</h5>
+                    <p>0tweet</p>
+                    <h5>Comar nas</h5>
+                    <p>0tweet</p>  
                 </Col>
                 <Col md={3}></Col>
             </Row>
