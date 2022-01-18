@@ -5,7 +5,6 @@ import styled from 'styled-components';
 
 const NavIcon = styled.div`
     position:fixed;
-    margin-right:100px;
     img{
         margin-right:20px;
     }
@@ -20,7 +19,7 @@ const NavIcon = styled.div`
 `
 const Nav = () => {
     return (
-        <Col md={2}> 
+        <Col md={2} className='p-0'> 
         <>
             <NavIcon>
             <p> <Link to='/homePage'> <img src="https://img.icons8.com/color/25/000000/twitter--v1.png" alt="logo twitter" /> </Link> </p>
