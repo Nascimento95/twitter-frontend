@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Card = () => {
     return (
       <div className="card">
-        <img style={{height:"210px",width: "100%"}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTan4BcwLXycNnmGnOopb2IAw1u9zSxNMvQew&usqp=CAU" className="card-img-top" alt="picture_profile"/>
+        <img className="card-img-top" style={{height:'210px',width:'100%'}} src="https://img-19.ccm2.net/WNCe54PoGxObY8PCXUxMGQ0Gwss=/480x270/smart/d8c10e7fd21a485c909a5b4c5d99e611/ccmcms-commentcamarche/20456790.jpg"  alt="picture_profile"/>
         <div className="card-body">
         <button >Edit profile</button>
           <h5 className="card-title">Coma Nas</h5>
