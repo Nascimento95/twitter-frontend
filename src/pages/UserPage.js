@@ -13,15 +13,23 @@ const MarginCard = styled.div`
 
 const UserPage = () => {
     return (
-        <Container>
+        <Container fluid>
             <Row>
                 <Nav/>
-                <Col md={7} className=''>
+                <Col md={6} className=''>
                     <MarginCard>
                         <Card />
                     </MarginCard>                                          
-            <NavTopFixe/>
-     
+                    <NavTopFixe 
+                        title="comar"
+                        tweet="0tweet"
+                    />
+                    <h5>Comar nas</h5>
+                    <p>0tweet</p>
+                    <h5>Comar nas</h5>
+                    <p>0tweet</p>
+                    <h5>Comar nas</h5>
+                    <p>0tweet</p>  
                 </Col>
                 <Col md={3}></Col>
             </Row>

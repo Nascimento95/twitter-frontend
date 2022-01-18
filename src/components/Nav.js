@@ -26,7 +26,7 @@ const NavIcon = styled.div`
 `
 const Nav = () => {
     return (
-        <Col md={2}> 
+        <Col md={2} className='p-0'> 
         <>
             <NavIcon>
             <p> <Link to='/homePage'> <img src="https://img.icons8.com/color/25/000000/twitter--v1.png" alt="logo twitter" /> </Link> </p>
