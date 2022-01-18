@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components'
-import Buttons from '../Components/Buttons';
-import Modale from '../Components/Modale';
+import Buttons from '../components/Buttons';
+import Modale from '../components/Modale';
 
 const Login = () => {
     const [show, setShow] = useState(false)
@@ -111,7 +111,7 @@ const Footer = styled.div`
    },
    li{
        font-size : 13px;
-    margin-left: 10px;
+    margin-left: 8px;
     list-style-type: none;
    }
 `

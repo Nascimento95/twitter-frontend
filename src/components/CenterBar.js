@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 const Border = styled.div`
 border-right : 1px solid lightgray;
 display : inline-block;
-scroll : auto;
 `
 const Form = styled.form`
 display: flex;
