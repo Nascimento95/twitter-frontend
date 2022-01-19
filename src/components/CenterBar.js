@@ -79,12 +79,14 @@ const CenterBar = () => {
     
     const formik = useFormik({
         initialValues: {
-            text : "",
-            author:user._id  
+            text : ""  
         },
         onSubmit : values => {
             console.log(values);
-            fetchPostTweet(values)
+            fetchPostTweet({
+                ...values,
+                author: user._id
+            })
         }
     })
     if (!tweets) {
@@ -132,7 +134,7 @@ const CenterBar = () => {
                 <div className='d-flex flex-column align-items-center'>
                     {tweets.map(e => 
                         <>
-                            <Card  style={{ width: '100%' }}>
+                            <Card key={e.author.namename} style={{ width: '100%' }}>
                                 <Card.Body >
                                     <Card.Title>{e.author.name}</Card.Title>
                                     <Card.Subtitle className="mb-2 text-muted">@{e.author.pseudo}</Card.Subtitle>

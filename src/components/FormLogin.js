@@ -14,8 +14,8 @@ const FormLogin = () => {
 
     const formik = useFormik({
         initialValues : {
-            username: "",
-            password :"",
+            username: "Marco",
+            password :"marcopereira",
         },
         validationSchema : Yup.object({
             password : Yup.string().min(8, 'Password minimum 8 characters')
