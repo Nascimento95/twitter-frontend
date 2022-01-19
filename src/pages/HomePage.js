@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import CenterBar from '../components/CenterBar';
 import NavTopHome from '../components/NavTopHome';
+import CardFollow from '../components/CardFollow';
 
 
 
@@ -27,7 +28,7 @@ const HomePage = () => {
                             </Col>
 
                             <Col md={3}>
-
+                                <CardFollow/>
                             </Col>
                     </Row>
                 </Container>
