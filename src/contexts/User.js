@@ -1,10 +1,27 @@
-import { createContext } from "react";
-import { useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 const UserContext = createContext({})
 
 const UserContextProvider = ({children}) => {
     const [user, setUser] = useState(null)
+
+    useEffect(() => {
+        getUser()
+    }, [])
+
+    const getUser = async() => {
+        const response = await fetch (`http://localhost:5000/auth/me`, {
+            credentials: "include",
+        })
+        if (response.status >= 400) {
+            throw response.stautusText
+        }
+        const user = await response.json()
+        console.log("DonRico", user);
+    
+        setUser(user)
+    }
+
 
     const value = {
         user,

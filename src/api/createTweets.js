@@ -9,7 +9,7 @@ const createTweets = async(values) => {
         credentials: "include",
         body:JSON.stringify({
             content: values.text,
-            author:values.author,
+            author: values.author,
         }),
     })
     if (response.status >= 400) {
