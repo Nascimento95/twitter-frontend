@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 import HomePage from './pages/HomePage';
 import UserPage from './pages/UserPage';
+import { UserContextProvider } from './contexts/User';
 
 
 
@@ -12,12 +13,14 @@ import UserPage from './pages/UserPage';
 const App = () => {
   return (
     <BrowserRouter>
-    <Routes>
-        <Route exact path="/" element={<Login/>} />
-        <Route exact path="/homePage" element={<HomePage/>} />
-        <Route exact path="/userPage" element={<UserPage/>} />
-        <Route path="*" element={<NotFound/>} />
-      </Routes>
+      <UserContextProvider>
+        <Routes>
+          <Route exact path="/" element={<Login/>} />
+          <Route exact path="/homePage" element={<HomePage/>} />
+          <Route exact path="/userPage" element={<UserPage/>} />
+          <Route path="*" element={<NotFound/>} />
+        </Routes>
+      </UserContextProvider>
     </BrowserRouter>
   );
 };

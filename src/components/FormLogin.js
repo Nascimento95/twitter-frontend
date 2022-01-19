@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import  FormControl  from 'react-bootstrap/FormControl'
 import Buttons from './Buttons'
+import { UserContext } from '../contexts/User'
 
 const FormLogin = () => {
 
+    const {setUser} = useContext(UserContext)
     const [viewPassword, setViewPassword] = useState(false)
     const navigate = useNavigate()  
 
@@ -37,6 +39,7 @@ const FormLogin = () => {
             })
         })   
         const user = await signupResponse.json()
+        setUser(user)
         navigate("/homePage")/* après le login on envoie l'utilisateur sur la page que eloi fait*/
         if (user.error) {
             alert(user.error)

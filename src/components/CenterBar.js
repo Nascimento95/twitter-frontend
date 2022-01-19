@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useContext } from 'react';
 import { useFormik } from 'formik'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom';
 import getTweets from '../api/getTweets'
 import Card  from 'react-bootstrap/Card';
 import createTweets from '../api/createTweets';
-
-
+import { UserContext } from '../contexts/User';
 
 
 const Border = styled.div`
@@ -61,6 +60,7 @@ padding : 10px;`
 
 
 const CenterBar = () => {
+    const {user} = useContext(UserContext)
     const [tweets, setTweets] = useState(null)
     useEffect(() => {
         fetchTweets()
@@ -79,7 +79,8 @@ const CenterBar = () => {
     
     const formik = useFormik({
         initialValues: {
-            text : "",  
+            text : "",
+            author:user._id  
         },
         onSubmit : values => {
             console.log(values);
