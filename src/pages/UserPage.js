@@ -10,6 +10,7 @@ import styled from 'styled-components';
 const MarginCard = styled.div`
     margin-top:50px
 `
+
 const UserPage = () => {
     return (
         <Container fluid>
@@ -35,6 +36,5 @@ const UserPage = () => {
         </Container>
     );
 };
-
 
 export default UserPage;

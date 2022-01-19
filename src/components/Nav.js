@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 const NavIcon = styled.div`
     position:fixed;
+    margin-right:80px;
     img{
         margin-right:20px;
     }
@@ -15,6 +16,12 @@ const NavIcon = styled.div`
     p{
         font-size:20px;
         margin-right:100px;
+        margin-top: 20px;
+        :hover{
+            background-color : #EFF3F4;
+            border-radius : 20px;
+            padding : 2px 5px
+        }
     }
 `
 const Nav = () => {
