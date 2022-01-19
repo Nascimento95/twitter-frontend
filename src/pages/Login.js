@@ -119,7 +119,7 @@ const Footer = styled.div`
    },
    li{
        font-size : 13px;
-    margin-left: 10px;
+    margin-left: 8px;
     list-style-type: none;
    }
 `
