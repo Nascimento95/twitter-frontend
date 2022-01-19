@@ -14,24 +14,23 @@ const HomePage = () => {
 
     return (
         
-            <>
-                
-                <Container>
-                    <Row>
-                        <Nav/> 
-                            <Col md={7}>
+        <>
+            <Container>
+                <Row>
+                    <Nav/> 
+                        <Col md={7}>
 
-                                                                
-                            <NavTopHome />
-                            <CenterBar/>
-                            </Col>
+                                                            
+                        <NavTopHome />
+                        <CenterBar/>
+                        </Col>
 
-                            <Col md={3}>
+                        <Col md={3}>
 
-                            </Col>
-                    </Row>
-                </Container>
-            </>
+                        </Col>
+                </Row>
+            </Container>
+        </>
         
     );
 };
