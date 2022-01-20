@@ -1,12 +1,26 @@
 import React from 'react';
 import  {Link}  from 'react-router-dom'
+import Buttons from './Buttons'
+import styled from 'styled-components';
+
+const ButtonDiv = styled.div`
+  display:flex;
+  justify-content:end;
+  
+`
 
 const Card = () => {
     return (
       <div className="card">
         <img className="card-img-top" style={{height:'210px',width:'100%'}} src="https://img-19.ccm2.net/WNCe54PoGxObY8PCXUxMGQ0Gwss=/480x270/smart/d8c10e7fd21a485c909a5b4c5d99e611/ccmcms-commentcamarche/20456790.jpg"  alt="picture_profile"/>
         <div className="card-body">
-            <button >Edit profile</button>
+            <button style={{height:"130px",width:"130px",borderRadius:"100%",position:'relative',bottom:"90px"}}> <img className="card-img-top" style={{height:"130px",width:"130px",borderRadius:"100%",position:'relative',right:"8px",bottom:"2px"}} src="https://img-19.ccm2.net/WNCe54PoGxObY8PCXUxMGQ0Gwss=/480x270/smart/d8c10e7fd21a485c909a5b4c5d99e611/ccmcms-commentcamarche/20456790.jpg"  alt="picture_profile"/></button>
+            <ButtonDiv>
+              <Buttons 
+                text="Edit Profil"
+                styleBoostrap= "outline-secondary"
+              />
+            </ButtonDiv>
             <h5 className="card-title">Coma Nas</h5>
             <h6>Coma_nas</h6>
           <div className='d-flex'>

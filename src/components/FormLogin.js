@@ -1,49 +1,46 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import  FormControl  from 'react-bootstrap/FormControl'
 import Buttons from './Buttons'
+import { UserContext } from '../contexts/User'
 
-const FormSignup = () => {
+const FormLogin = () => {
 
+    const {setUser} = useContext(UserContext)
     const [viewPassword, setViewPassword] = useState(false)
     const navigate = useNavigate()  
 
     const formik = useFormik({
         initialValues : {
-            name : "",
-            email :"",
-            password :"",
-            pseudo :"",
-            birthDate :""
+            username: "Marco",
+            password :"marcopereira",
         },
         validationSchema : Yup.object({
             password : Yup.string().min(8, 'Password minimum 8 characters')
         }),
         onSubmit : values => {
-            signup(values)
-            // console.log(JSON.stringify(values))
+            login(values)
+            console.log(JSON.stringify(values))
         }
     })
     // le fetch dans une function asyncrone appeler dans le submit
-    const signup = async values => {
-        const signupResponse = await fetch('http://localhost:5000/users', {
+    const login = async values => {
+        const signupResponse = await fetch('http://localhost:5000/auth/login', {
             method: 'post',
             headers: {
                 'Content-type': 'application/json'
             },
             credentials: 'include',
             body: JSON.stringify({
-                name: values.name,
-                email: values.email,
+                username: values.username,
                 password: values.password,
-                pseudo: values.pseudo,
-                birthDate : values.birthDate
             })
         })   
         const user = await signupResponse.json()
-        navigate("/homePage")/* après le signup on envoie l'utilisateur sur la page que eloi fait*/
+        setUser(user)
+        navigate("/homePage")/* après le login on envoie l'utilisateur sur la page que eloi fait*/
         if (user.error) {
             alert(user.error)
             return
@@ -57,25 +54,16 @@ const FormSignup = () => {
             setViewPassword(false)
         }
     }
-    // console.log(viewPassword);
+    console.log(viewPassword);
     return (
         <form className='mt-1' onSubmit={formik.handleSubmit}>
             <FormControl
                 placeholder="Nom et Prénom"
-                id ="name"
-                name="name"
+                id ="username"
+                name="username"
                 type="text"
                 onChange={formik.handleChange}
-                value ={formik.values.name}
-            />
-            <FormControl
-                className='mt-3'
-                placeholder="e-mail"
-                id ="email"
-                name="email"
-                type="email"
-                onChange={formik.handleChange}
-                value ={formik.values.email}
+                value ={formik.values.username}
             />
             <img onClick={viewPassWor} style={{position:"relative",top:"35px",left:"90%"}} src="https://img.icons8.com/external-kiranshastry-solid-kiranshastry/30/000000/external-view-cyber-security-kiranshastry-solid-kiranshastry-4.png" alt="icone_password"/>
             <FormControl
@@ -90,28 +78,9 @@ const FormSignup = () => {
             {formik.touched.password && formik.errors.password ? (
                 <div className='text-danger'>{formik.errors.password}</div>
             ) : null}
-            <FormControl
-                className='mt-3'
-                placeholder="pseudo"
-                id ="pseudo"
-                name="pseudo"
-                type="text"
-                onChange={formik.handleChange}
-                value ={formik.values.pseudo}
-            />
-            <label className='mt-5'><span className='fw-bold'>Date de naissance</span><br/> <p className='text-secondary'>Cette information ne sera pas affichée publiquement. Confirmez votre âge, même si ce compte est pour une entreprise, un animal de compagnie ou autre chose.</p></label>
-            <FormControl
-                className='mt-3'
-                placeholder="Nom et Prénom"
-                id ="birthDate"
-                name="birthDate"
-                type="date"
-                onChange={formik.handleChange}
-                value ={formik.values.birthDate}
-            />
             <Buttons 
                type = "submit"
-               text = "S'inscrire"
+               text = "Se Connecter"
                styles = {{width:"100%"}}
                styleBoostrap ="mt-4 bg-secondary text-light"
             />
@@ -120,4 +89,4 @@ const FormSignup = () => {
     );
 };
 
-export default FormSignup;
+export default FormLogin;

@@ -20,7 +20,7 @@ const Div2= styled.div`
 }`
 const Div3 = styled.div`
 {
-    grid-area: 1 / 5 / 6 / 6;
+ grid-area: 1 / 5 / 6 / 6;
 }`
 
 
@@ -29,7 +29,7 @@ const Div3 = styled.div`
 const List = () => {
  
         
-
+  
     return (
         <div>
             
