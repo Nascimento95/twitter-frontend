@@ -23,7 +23,7 @@ const FormSignup = () => {
         }),
         onSubmit : values => {
             signup(values)
-            console.log(JSON.stringify(values))
+            // console.log(JSON.stringify(values))
         }
     })
     // le fetch dans une function asyncrone appeler dans le submit
@@ -57,7 +57,7 @@ const FormSignup = () => {
             setViewPassword(false)
         }
     }
-    console.log(viewPassword);
+    // console.log(viewPassword);
     return (
         <form className='mt-1' onSubmit={formik.handleSubmit}>
             <FormControl
