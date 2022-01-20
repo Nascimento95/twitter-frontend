@@ -7,6 +7,8 @@ import Card  from 'react-bootstrap/Card';
 import createTweets from '../api/createTweets';
 import { UserContext } from '../contexts/User';
 import ModalComment from './ModalComment';
+import { Dropdown, DropdownButton } from 'react-bootstrap';
+import deleteTweet from '../api/deleteTweet';
 
 const Border = styled.div`
 border-right : 1px solid lightgray;
@@ -94,6 +96,7 @@ const CenterBar = () => {
                 ...values,
                 author: user._id
             })
+            formik.resetForm();
         }
     })
     if (!tweets) {
@@ -144,7 +147,18 @@ const CenterBar = () => {
                             {tweets.map((tweet, index) => 
                                 <Card key={index} style={{ width: '100%' }}>
                                     <Card.Body >
-                                        <Card.Title>{tweet.author.name} </Card.Title>
+                                        <Card.Title className='d-flex justify-content-between' >
+                                            {tweet.author.name} 
+                                            <DropdownButton variant='bg-light'  id="dropdown-item-button" title="...">
+                                                <Dropdown.ItemText></Dropdown.ItemText>
+                                                <Dropdown.Item onClick={() =>deleteTweet(tweet._id)} className='' as="button"><img className='mx-3' src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/20/fa314a/external-delete-multimedia-kiranshastry-lineal-kiranshastry.png" alt="icon"/>delete</Dropdown.Item>
+                                                <Dropdown.Item className='mt-3' as="button"><img className='mx-3' src="https://img.icons8.com/external-kmg-design-basic-outline-kmg-design/20/000000/external-push-pin-business-management-kmg-design-basic-outline-kmg-design.png" alt="icon"/>Pin to your profile</Dropdown.Item>
+                                                <Dropdown.Item className='mt-3' as="button"><img className='mx-3' src="https://img.icons8.com/windows/20/000000/add-property.png" alt="icon"/>Add/remove@{tweet.author.pseudo} from Lists</Dropdown.Item>
+                                                <Dropdown.Item className='mt-3' as="button"><img className='mx-3' src="https://img.icons8.com/ios/20/000000/topic.png" alt="icon_comments"/>Change who can reply</Dropdown.Item>
+                                                <Dropdown.Item className='mt-3' as="button"><img className='mx-3' src="https://img.icons8.com/external-tal-revivo-light-tal-revivo/20/000000/external-software-programming-language-with-brackets-and-slash-logotype-programing-light-tal-revivo.png" alt="icon"/>Embed Tweet</Dropdown.Item>
+                                                <Dropdown.Item className='mt-3' as="button"><img className='mx-3' src="https://img.icons8.com/ios/20/000000/bar-chart--v1.png" alt="icon"/>View Tweet Activity</Dropdown.Item>
+                                            </DropdownButton>
+                                        </Card.Title>
                                         <Card.Subtitle className="mb-2 text-muted">@{tweet.author.pseudo} </Card.Subtitle>    
                                             <Card.Text>
                                                 {tweet.content}
