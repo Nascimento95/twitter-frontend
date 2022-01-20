@@ -1,29 +1,40 @@
 import React from 'react';
-import NavBarVertical from '../components/NavBarVertical'
+import Nav from '../components/Nav'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 import CenterBar from '../components/CenterBar';
-import EndBar from '../components/EndBar';
-import styled from 'styled-components'
+import NavTopHome from '../components/NavTopHome';
+import CardFollow from '../components/CardFollow';
+import CardTrends from '../components/CardTrends';
 
-const Grid = styled.div`
-display: grid;
-grid-template-columns: 0.6fr 2fr 1.6fr;
-grid-template-rows: 1fr;
-grid-column-gap: 0px;
-grid-row-gap: 0px;
-max-width: 100%;
-overflow-x: hidden;
-`
+
 
 
 
 const HomePage = () => {
+
     return (
         
-            <Grid>
-                <NavBarVertical/>
-                <CenterBar/>
-                <EndBar/>
-            </Grid>
+            <>
+                
+                <Container>
+                    <Row>
+                        <Nav/> 
+                            <Col md={7}>
+
+                                                                
+                            <NavTopHome />
+                            <CenterBar/>
+                            </Col>
+
+                            <Col md={3}>
+                                <CardTrends/>
+                                <CardFollow/>
+                            </Col>
+                    </Row>
+                </Container>
+            </>
         
     );
 };

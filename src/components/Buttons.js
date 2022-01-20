@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-const Buttons = ({text , openModal, styles, styleBoostrap, type }) => {
+const Buttons = ({text , openModal, styles, styleBoostrap, type, variant }) => {
     return (
         <div>
             <Button 

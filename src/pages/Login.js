@@ -2,12 +2,16 @@ import React, { useState } from 'react';
 import styled from 'styled-components'
 import Buttons from '../components/Buttons';
 import Modale from '../components/Modale';
+import ModaleLogin from '../components/ModaleLogin';
 
 const Login = () => {
     const [show, setShow] = useState(false)
+    const [showModal, setShowModal] = useState(false)
     // function pour open et close la modal
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const handleCloseModal = () => setShowModal(false)
+    const handleShowModal = () => setShowModal(true)
     return (
        
        <div className="container-fluid vh-100">
@@ -43,7 +47,7 @@ const Login = () => {
                                     <p className='fw-bold'>Vous avez déjà un compte ?</p>
                                         <Buttons 
                                             styles={{width:"40%"}}
-                                            openModal={handleShow}
+                                            openModal={handleShowModal}
                                             text="Se connecter"
                                         />
                                 </div>
@@ -55,6 +59,10 @@ const Login = () => {
             <Modale 
                 closeModal={handleClose}
                 showModal={show}
+            />
+            <ModaleLogin 
+                closeModal={handleCloseModal}
+                showModal={showModal}
             />
             <div className='row mt-3'>
                 <div className='col'>
@@ -111,7 +119,7 @@ const Footer = styled.div`
    },
    li{
        font-size : 13px;
-    margin-left: 10px;
+    margin-left: 8px;
     list-style-type: none;
    }
 `
