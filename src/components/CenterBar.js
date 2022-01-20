@@ -6,7 +6,7 @@ import getTweets from '../api/getTweets'
 import Card  from 'react-bootstrap/Card';
 import createTweets from '../api/createTweets';
 import { UserContext } from '../contexts/User';
-
+import ModalComment from './ModalComment';
 
 const Border = styled.div`
 border-right : 1px solid lightgray;
@@ -62,9 +62,16 @@ padding : 10px;`
 const CenterBar = () => {
     const {user} = useContext(UserContext)
     const [tweets, setTweets] = useState(null)
+    // const [showModalComments, setShowModalComments] = useState(false)
+    const [indexContent , setIndexContent] = useState(null)
+    
     useEffect(() => {
         fetchTweets()
     }, [])
+    
+    const closeModalCom = () => setIndexContent(null);
+    // const showModalCom = () => setShowModalComments(true);
+    // console.log("mon state modal commentaire",showModalComments);
 
     const fetchTweets = async () => {
         const tweets = await getTweets()
@@ -94,6 +101,9 @@ const CenterBar = () => {
             <p> Loading... </p>
         )
     }
+    // console.log(" mon utilisateur conecter",user);
+    // console.log(indexContent);
+    // console.log("mon state tweet recup de la route feed",tweets );
     return (
         <>
             <Border>
@@ -120,7 +130,6 @@ const CenterBar = () => {
                                 <Link to='/homePage'><Logo src="https://img.icons8.com/pastel-glyph/25/4a90e2/overtime--v1.png" alt="schedule"/></Link>
                                 <Link to='/homePage'><Logo src="https://img.icons8.com/ios/25/4a90e2/marker--v1.png" alt="location"/></Link>
                             </div>
-
                             <Button 
                                 type='submit' 
                                 disabled={!formik.values.text} 
@@ -130,26 +139,33 @@ const CenterBar = () => {
                         </Flex>
                     </Form>
                 </Tweet>
-                
                 <div className='d-flex flex-column align-items-center'>
-                    {tweets.map(e => 
-                        <>
-                            <Card key={e.author.namename} style={{ width: '100%' }}>
-                                <Card.Body >
-                                    <Card.Title>{e.author.name}</Card.Title>
-                                    <Card.Subtitle className="mb-2 text-muted">@{e.author.pseudo}</Card.Subtitle>
-                                    <Card.Text>
-                                    {e.content}
-                                    </Card.Text>
-                                    {/* <Card.Link href="#">Card Link</Card.Link>
-                                    <Card.Link href="#">Another Link</Card.Link> */}
-                                </Card.Body>
+                        <> 
+                            {tweets.map((tweet, index) => 
+                                <Card key={index} style={{ width: '100%' }}>
+                                    <Card.Body >
+                                        <Card.Title>{tweet.author.name} </Card.Title>
+                                        <Card.Subtitle className="mb-2 text-muted">@{tweet.author.pseudo} </Card.Subtitle>    
+                                            <Card.Text>
+                                                {tweet.content}
+                                            </Card.Text>                                  
+                                        <div>
+                                            <img  onClick={()=>setIndexContent(index)}  src="https://img.icons8.com/ios/18/000000/topic.png" alt="icon_comments"/>
+                                            {user.tweets.length}
+                                        </div>
+                                        <ModalComment
+                                            closeModal={closeModalCom}
+                                            showModal={index === indexContent}
+                                            name = {user.name}
+                                            pseudo={user.pseudo}
+                                            content={tweet.content} 
+                                            idTweet={tweet._id}                         
+                                        />
+                                    </Card.Body>
                                 </Card>
-                        </>
-                        )}
+                            )}           
+                        </> 
                 </div>
-            
-
             </Border>
         </>
     );
