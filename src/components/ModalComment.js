@@ -10,7 +10,7 @@ const ModalComment = ({showModal, closeModal, name, pseudo, content, idTweet }) 
                 <Modal.Header  closeButton>
                 <Modal.Title> commentaire tweet</Modal.Title>
                 </Modal.Header>
-                <Modal.Body style={{height:"200px"}} variant='scrollable'>
+                <Modal.Body style={{height:"220px"}} variant='scrollable'>
                   <div>
                     <p>{name} @{pseudo} </p>  
                     <p>{content} </p>    
