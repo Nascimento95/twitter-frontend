@@ -150,8 +150,8 @@ const CenterBar = () => {
                                                 {tweet.content}
                                             </Card.Text>                                  
                                         <div>
-                                            <img  onClick={()=>setIndexContent(index)}  src="https://img.icons8.com/ios/18/000000/topic.png" alt="icon_comments"/>
-                                            {user.tweets.length}
+                                            <img  style={{cursor : 'pointer'}} onClick={()=>setIndexContent(index)}  src="https://img.icons8.com/ios/18/000000/topic.png" alt="icon_comments"/>
+                                            {tweet.comments.length}
                                         </div>
                                         <ModalComment
                                             closeModal={closeModalCom}

@@ -6,6 +6,7 @@ import NotFound from './pages/NotFound';
 import HomePage from './pages/HomePage';
 import UserPage from './pages/UserPage';
 import { UserContextProvider } from './contexts/User';
+import AllUsers from './pages/AllUsers';
 
 
 
@@ -18,7 +19,8 @@ const App = () => {
           <Route exact path="/" element={<Login/>} />
           <Route exact path="/homePage" element={<HomePage/>} />
           <Route exact path="/userPage" element={<UserPage/>} />
-          <Route path="*" element={<NotFound/>} />
+          <Route exact path="/allUsers" element={<AllUsers/>} />
+          <Route path="*" element={<NotFound/>}/>
         </Routes>
       </UserContextProvider>
     </BrowserRouter>
