@@ -6,6 +6,7 @@ import NotFound from './pages/NotFound';
 import HomePage from './pages/HomePage';
 import UserPage from './pages/UserPage';
 import Messages from './pages/Messages';
+import List from './pages/List';
 import { UserContextProvider } from './contexts/User';
 
 
@@ -20,6 +21,7 @@ const App = () => {
           <Route exact path="/homePage" element={<HomePage/>} />
           <Route exact path="/userPage" element={<UserPage/>} />
           <Route exact path="/messages" element={<Messages/>} />
+          <Route exact path="/List" element={<List/>} />
           <Route path="*" element={<NotFound/>} />
         </Routes>
       </UserContextProvider>

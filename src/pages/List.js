@@ -1,11 +1,13 @@
 import React from 'react';
 import NavBarVertical from '../components/NavBarVertical';
 import styled from 'styled-components'
+import CardFollow from '../components/CardFollow';
+
 
 const Parent = styled.div`
 {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: 1fr 2fr repeat(2, 0fr) 1fr;
     grid-template-rows: repeat(5, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
@@ -16,15 +18,43 @@ const Div1 = styled.div`
 }`
 const Div2= styled.div`
 {
-    grid-area: 1 / 2 / 6 / 5;
+    grid-area: 1 / 2 / 2 / 3;
+    border-right : 1px solid lightgray ;
+    margin-right : 50px; 
+    border-bottom: 1px solid lightgray;
 }`
 const Div3 = styled.div`
-{
+{                                                               
+ grid-area: 2 / 2 / 4 / 3;
+}`
+const Div4 = styled.div`
+{                                                               
+ grid-area: 4 / 2 / 6 / 3;
+ border-top: 1px solid lightgray;
+}`
+const Div5 = styled.div`
+{                                                               
  grid-area: 1 / 5 / 6 / 6;
 }`
 
 
-
+const Title= styled.div`
+    display:flex;
+    justify-content : space-between;
+    align-items : center;
+ 
+`
+const Icons  = styled.div`
+{ border-radius: 10px ;
+  margin-right: 10px ;
+  &:hover {
+  background-color: #1A8DD9;
+}`
+const Titele2Contenaire2  = styled.div`
+{  
+  margin-right: 10px ;
+ 
+}`
 
 const List = () => {
  
@@ -32,7 +62,41 @@ const List = () => {
   
     return (
         <div>
-            
+            <Parent>
+                <Div1>
+                    <NavBarVertical/>
+                </Div1>
+                <Div2>
+                    <Title>  
+                    <div className="d-flex">
+                   <Icons> <img src="https://img.icons8.com/external-line-icons-royyan-wijaya/30/000000/external-arrow-arrow-me-line-icons-royyan-wijaya-7.png"/> </Icons>
+                            <h4>Comment</h4>
+                    </div>
+                    <div className="d-flex">
+                            <Icons> <img src="https://img.icons8.com/wired/30/000000/add-list.png" alt="IconeNewList"/> </Icons>
+                            <Icons> <img src="https://img.icons8.com/material-outlined/30/000000/more.png" alt="IconeMore" /> </Icons> 
+                    </div>
+                        
+                    
+                    </Title>
+                    <h4>Pinned Lists</h4>
+                   <p> Nothing to see here yet — pin your favorite Lists to access them quickly.</p> 
+
+                </Div2>
+                <Div3>
+                   <Titele2Contenaire2>
+                       <h4>Discover new Lists</h4>
+                   </Titele2Contenaire2>
+                   
+                </Div3>
+                <Div4>
+                    <h4>Your Lists</h4>
+                    <p>You haven't created or followed any Lists. When you do, they'll show up here.</p>
+                </Div4>
+                <Div5>
+                    <CardFollow/>
+                </Div5>
+            </Parent>
         </div>
     );
 };
