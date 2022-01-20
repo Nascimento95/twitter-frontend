@@ -1,7 +1,6 @@
 import React from 'react';
-import NavBarVertical from '../components/NavBarVertical';
 import styled from 'styled-components'
-
+import Nav from '../components/Nav';
 const Parent = styled.div`
 {
     display: grid;
@@ -64,7 +63,7 @@ const Messages = () => {
 
            <Parent>
                <Div1>
-                   <NavBarVertical/>
+                   <Nav />
                </Div1>
                 <Div2>
                     <Title>
