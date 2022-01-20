@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col'
 import CenterBar from '../components/CenterBar';
 import NavTopHome from '../components/NavTopHome';
 import CardFollow from '../components/CardFollow';
+import CardTrends from '../components/CardTrends';
 
 
 
@@ -28,6 +29,7 @@ const HomePage = () => {
                             </Col>
 
                             <Col md={3}>
+                                <CardTrends/>
                                 <CardFollow/>
                             </Col>
                     </Row>
