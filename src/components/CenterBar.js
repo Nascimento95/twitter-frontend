@@ -10,6 +10,7 @@ import ModalComment from './ModalComment';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
 import deleteTweet from '../api/deleteTweet';
 
+
 const Border = styled.div`
 border-right : 1px solid lightgray;
 display : inline-block;
@@ -62,6 +63,7 @@ padding : 10px;`
 
 
 const CenterBar = () => {
+    var moment = require('moment')
     const {user} = useContext(UserContext)
     const [tweets, setTweets] = useState(null)
     // const [showModalComments, setShowModalComments] = useState(false)
@@ -75,9 +77,10 @@ const CenterBar = () => {
     // const showModalCom = () => setShowModalComments(true);
     // console.log("mon state modal commentaire",showModalComments);
 
+
     const fetchTweets = async () => {
         const tweets = await getTweets()
-        console.log(tweets);
+        // console.log(tweets);
         setTweets(tweets)
     }
 
@@ -97,6 +100,7 @@ const CenterBar = () => {
                 author: user._id
             })
             formik.resetForm();
+            fetchTweets()
         }
     })
     if (!tweets) {
@@ -111,6 +115,7 @@ const CenterBar = () => {
         <>
             <Border>
                 <Tweet> 
+                {moment().format('DD-MM-YY')}
                     <p> <Link to='/homePage'> <img src="https://img.icons8.com/ios-filled/35/000000/user-female-circle.png" alt="user profile"/></Link></p>
                     <Form onSubmit={formik.handleSubmit}> 
                         <Input 
@@ -145,10 +150,10 @@ const CenterBar = () => {
                 <div className='d-flex flex-column align-items-center'>
                         <> 
                             {tweets.map((tweet, index) => 
-                                <Card key={index} style={{ width: '100%' }}>
+                                <Card key={index} style={{ width:'100%'}}>
                                     <Card.Body >
                                         <Card.Title className='d-flex justify-content-between' >
-                                            {tweet.author.name} 
+                                            <p>{tweet.author.name} <span className="fs-6 text-muted">@{tweet.author.pseudo} .</span><span className='fs-6 text-muted' style={{marginLeft:"10px"}}>{moment(tweet.createdAt).format('MMM-DD')}</span></p>
                                             <DropdownButton variant='bg-light'  id="dropdown-item-button" title="...">
                                                 <Dropdown.ItemText></Dropdown.ItemText>
                                                 <Dropdown.Item onClick={() =>deleteTweet(tweet._id)} className='' as="button"><img className='mx-3' src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/20/fa314a/external-delete-multimedia-kiranshastry-lineal-kiranshastry.png" alt="icon"/>delete</Dropdown.Item>
@@ -159,13 +164,16 @@ const CenterBar = () => {
                                                 <Dropdown.Item className='mt-3' as="button"><img className='mx-3' src="https://img.icons8.com/ios/20/000000/bar-chart--v1.png" alt="icon"/>View Tweet Activity</Dropdown.Item>
                                             </DropdownButton>
                                         </Card.Title>
-                                        <Card.Subtitle className="mb-2 text-muted">@{tweet.author.pseudo} </Card.Subtitle>    
+                                        <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>    
                                             <Card.Text>
                                                 {tweet.content}
                                             </Card.Text>                                  
                                         <div>
-                                            <img  style={{cursor : 'pointer'}} onClick={()=>setIndexContent(index)}  src="https://img.icons8.com/ios/18/000000/topic.png" alt="icon_comments"/>
+                                            <img  style={{cursor : 'pointer',marginRight:"10px"}} onClick={()=>setIndexContent(index)}  src="https://img.icons8.com/ios/18/000000/topic.png" alt="icon_comments"/>
                                             {tweet.comments.length}
+                                            <img  style={{cursor : 'pointer',marginLeft:"100px"}}  src="https://img.icons8.com/fluency-systems-regular/18/000000/retweet.png" alt="icon_retweets"/> 162
+                                            <img style={{cursor : 'pointer',marginLeft:"100px"}} src="https://img.icons8.com/material-outlined/18/000000/hearts.png" alt="icone_coeur"/> 23k
+                                            <img style={{cursor : 'pointer',marginLeft:"100px"}} src="https://img.icons8.com/external-bearicons-glyph-bearicons/18/000000/external-Share-social-media-bearicons-glyph-bearicons.png" alt="icon_share"/>
                                         </div>
                                         <ModalComment
                                             closeModal={closeModalCom}
