@@ -58,6 +58,14 @@ padding : 6px 15px;
 const Logo = styled.img`
 padding : 10px;`
 
+const Hover = styled.div`
+&:hover{
+    background-color: lightgray;
+    transition: 1s;
+    border-radius: 5px
+}
+`
+
 
 const CenterBar = () => {
     const {user} = useContext(UserContext)
@@ -75,7 +83,7 @@ const CenterBar = () => {
 
     const fetchTweets = async () => {
         const tweets = await getTweets()
-        console.log(tweets);
+        console.log("array of tweets", tweets);
         setTweets(tweets)
     }
 
@@ -140,31 +148,40 @@ const CenterBar = () => {
                     </Form>
                 </Tweet>
                 <div className='d-flex flex-column align-items-center'>
-                        <> 
-                            {tweets.map((tweet, index) => 
-                                <Card key={index} style={{ width: '100%' }}>
-                                    <Card.Body >
-                                        <Card.Title>{tweet.author.name} </Card.Title>
-                                        <Card.Subtitle className="mb-2 text-muted">@{tweet.author.pseudo} </Card.Subtitle>    
-                                            <Card.Text>
-                                                {tweet.content}
-                                            </Card.Text>                                  
-                                        <div>
-                                            <img  style={{cursor : 'pointer'}} onClick={()=>setIndexContent(index)}  src="https://img.icons8.com/ios/18/000000/topic.png" alt="icon_comments"/>
-                                            {tweet.comments.length}
-                                        </div>
-                                        <ModalComment
-                                            closeModal={closeModalCom}
-                                            showModal={index === indexContent}
-                                            name = {user.name}
-                                            pseudo={user.pseudo}
-                                            content={tweet.content} 
-                                            idTweet={tweet._id}                         
-                                        />
-                                    </Card.Body>
-                                </Card>
-                            )}           
-                        </> 
+                                {tweets.map((tweet, index) =>
+                                    
+                                            <Card key={index} style={{ width: '100%' }}>
+                                                
+                                                    <Hover> 
+                                                            <Card.Body >
+                                                                <Link to={`/tweets/${tweet._id}`} style={{ textDecoration: 'none', color : 'black'}}> 
+                                                        
+                                                                    <Card.Title>{tweet.author.name} </Card.Title>
+                                                                    <Card.Subtitle className="mb-2 text-muted">@{tweet.author.pseudo} </Card.Subtitle>    
+                                                                        <Card.Text>
+                                                                            {tweet.content}
+                                                                        </Card.Text>  
+                                                                </Link>                                 
+                                                            <div>
+                                                                <img  style={{cursor : 'pointer'}} onClick={()=>setIndexContent(index)}  src="https://img.icons8.com/ios/18/000000/topic.png" alt="icon_comments"/>
+                                                                {tweet.comments.length}
+                                                            </div>
+                                                         
+                                                            <ModalComment
+                                                                closeModal={closeModalCom}
+                                                                showModal={index === indexContent}
+                                                                name = {user.name}
+                                                                pseudo={user.pseudo}
+                                                                content={tweet.content} 
+                                                                idTweet={tweet._id}                         
+                                                            />
+                                                    
+                                                        </Card.Body>
+                                                    </Hover>         
+                                                
+                                            </Card>            
+                                )}  
+                            
                 </div>
             </Border>
         </>
