@@ -8,9 +8,9 @@ const ModaleLogin = ({showModal, closeModal }) => {
         <div>
             <Modal show={showModal} onHide={closeModal}>
                 <Modal.Header  closeButton>
-                <Modal.Title><img style={{marginLeft:"200px"}} src="https://img.icons8.com/color/48/000000/twitter--v1.png" alt="icon_twitter"/> <br/> <h3>Connecter-vous</h3></Modal.Title>
+                <Modal.Title><img style={{marginLeft:"200px"}} src="https://img.icons8.com/color/48/000000/twitter--v1.png" alt="icon_twitter"/> <br/> <h3>Connectez-vous à Twitter</h3></Modal.Title>
                 </Modal.Header>
-                <Modal.Body style={{height:"400px",overflow:"scroll"}} variant='scrollable'>
+                <Modal.Body style={{height:"200px"}} variant='scrollable'>
                    {/* <FormSignup /> */}
                    <FormLogin/>
                 </Modal.Body>

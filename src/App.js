@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 import HomePage from './pages/HomePage';
 import UserPage from './pages/UserPage';
+import Messages from './pages/Messages';
 import { UserContextProvider } from './contexts/User';
 import AllUsers from './pages/AllUsers';
 import Tweet from './pages/Tweet';
@@ -22,6 +23,7 @@ const App = () => {
           <Route exact path="/userPage" element={<UserPage/>} />
           <Route exact path="/allUsers" element={<AllUsers/>} />
           <Route exact path="/tweets/:id" element={<Tweet/>} />
+          <Route exact path="/messages" element={<Messages/>} />
           <Route path="*" element={<NotFound/>}/>
         </Routes>
       </UserContextProvider>

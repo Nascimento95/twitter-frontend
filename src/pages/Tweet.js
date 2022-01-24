@@ -58,8 +58,8 @@ const Tweet = () => {
     const [tweet, setTweet] = useState(null)
     useEffect(() => {
         fetchTweet()
-        console.log("My array of tweet", tweet);
-    }, [])
+        console.log("My array of tweet", tweet)
+    },[])
 
     const fetchTweet = async () => {
         const tweet = await getTweetById(id)
