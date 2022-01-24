@@ -11,6 +11,7 @@ import Explore from './pages/Explore'
 import Bookmarks from './pages/Bookmarks';
 import { UserContextProvider } from './contexts/User';
 import AllUsers from './pages/AllUsers';
+import Tweet from './pages/Tweet';
 
 
 
@@ -25,6 +26,7 @@ const App = () => {
           <Route exact path="/homePage" element={<HomePage/>} />
           <Route exact path="/userPage" element={<UserPage/>} />
           <Route exact path="/allUsers" element={<AllUsers/>} />
+          <Route exact path="/tweets/:id" element={<Tweet/>} />
           <Route exact path="/messages" element={<Messages/>} />
           <Route exact path="/list" element={<List/>} />
           <Route exact path="/explore" element={<Explore/>} />
