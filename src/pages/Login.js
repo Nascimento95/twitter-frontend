@@ -16,22 +16,22 @@ const Login = () => {
        
        <div className="container-fluid vh-100">
             <div className='row'>
-                <div className='col-5 p-0'>
+                <div className='col-lg-5 col-md-12 p-0'>
                     <ImageContainer>
                         <ImageTwitter>
                             <img src="https://img.icons8.com/ios-glyphs/400/ffffff/twitter--v1.png" alt="image_twitter"/>
                         </ImageTwitter> 
                     </ImageContainer>
                 </div>
-                <div className='col-7 mt-4 px-4'>
+                <div className='col-lg-7 col-md-12 mt-4 px-4 '>
                     <div>
-                    <img src="https://img.icons8.com/color/56/000000/twitter--v1.png" alt="icone_twitter"/>
-                      <div className='mt-5'>
-                        <H1 className='fw-bold'>Ça se passe<br/> maintenant</H1>
-                      </div>
-                      <div className='mt-5'>
+                        <img src="https://img.icons8.com/color/56/000000/twitter--v1.png" alt="icone_twitter"/>
+                        <div className='mt-5'>
+                            <H1 className='fw-bold'>Ça se passe<br/> maintenant</H1>
+                        </div>
+                        <div className='mt-5'>
                           <h2 className='fs-2 fw-bold'>Rejoignez Twitter dès aujourd'hui.</h2>
-                      </div>
+                        </div>
                         <div>
                             <div className='mt-5'>
                                 <Buttons
@@ -41,7 +41,7 @@ const Login = () => {
                                     text = "S'inscrire avec votre e-mail" 
                                 />
                                 <div className='fs-6'>
-                                <TextCondition>En vous inscrivant, vous acceptez les <span className='text-info'>Conditions d'Utilisation</span><br/> et la <span className='text-info'>Politique de Confidentialité</span>, incluant <span className='text-info'>l'Utilisation de<br/> Cookies</span>.</TextCondition>
+                                    <TextCondition>En vous inscrivant, vous acceptez les <span className='text-info'>Conditions d'Utilisation</span><br/> et la <span className='text-info'>Politique de Confidentialité</span>, incluant <span className='text-info'>l'Utilisation de<br/> Cookies</span>.</TextCondition>
                                 </div>
                                 <div className='mt-5'>
                                     <p className='fw-bold'>Vous avez déjà un compte ?</p>
@@ -110,8 +110,13 @@ const H1 = styled.h1`
     font-size  : 69px
 `
 const ImageTwitter = styled.div`
-    position: relative;
-    top: 200px; left: 70px;
+    // position: relative;
+    // top: 200px; left: 70px;
+    justify-content: center;
+    align-items: center;
+    display:flex;
+    height : 100%;
+    width:100%;
 `
 const Footer = styled.div`
    ul{
@@ -139,6 +144,7 @@ const ImageContainer = styled.div`
     height : 100%;
     // background-size: cover;
     background-size:140% 100% ;
+    display:flex;
 `
 
 export default Login;
