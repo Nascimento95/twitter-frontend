@@ -110,7 +110,7 @@ const List = () => {
                 <Div2>
                     <Title>  
                     <div className="d-flex">
-                            <Icons> <img src="https://img.icons8.com/external-line-icons-royyan-wijaya/30/000000/external-arrow-arrow-me-line-icons-royyan-wijaya-7.png"/> </Icons>
+                            <Icons> <img src="https://img.icons8.com/external-line-icons-royyan-wijaya/30/000000/external-arrow-arrow-me-line-icons-royyan-wijaya-7.png" alt='icon'/> </Icons>
                             <h4>Comment</h4>
                     </div>
                     <div className="d-flex">
@@ -129,7 +129,7 @@ const List = () => {
                     {/* <CardFollow/> */}
                     <Container>
                         <Flex>
-                        <img src="https://img.icons8.com/cute-clipart/64/000000/add-property.png"/>
+                        <img src="https://img.icons8.com/cute-clipart/64/000000/add-property.png" alt='icon'/>
                             <Text>
                                 <h5>Journaliste</h5>
                                 <p>Patric le technique</p>
@@ -139,7 +139,7 @@ const List = () => {
 
                         </Flex>
                         <Flex>
-                        <img src="https://img.icons8.com/cute-clipart/64/000000/add-property.png"/>
+                        <img src="https://img.icons8.com/cute-clipart/64/000000/add-property.png" alt='icon'/>
                             <Text>
                                 <h5>Journaliste</h5>
                                 <p>Monsieur Popo</p>
@@ -149,7 +149,7 @@ const List = () => {
 
                         </Flex>
                         <Flex>
-                        <img src="https://img.icons8.com/cute-clipart/64/000000/add-property.png"/>
+                        <img src="https://img.icons8.com/cute-clipart/64/000000/add-property.png" alt='icon'/>
                             <Text>
                                 <h5>Journaliste</h5>
                                 <p>Toto le Fourbe</p>
