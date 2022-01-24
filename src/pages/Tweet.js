@@ -10,7 +10,10 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Nav from '../components/Nav'
 import CardTrends from '../components/CardTrends';
 import CardFollow from '../components/CardFollow';
-import NavTopFixe from '../components/NavTopFixe'
+import NavTopFixe from '../components/NavTopFixe';
+import moment from 'moment';
+import { useContext } from 'react';
+import { UserContext } from '../contexts/User';
 
 const Flex = styled.div`
 display: flex;
@@ -56,6 +59,7 @@ padding : 10px;`
 const Tweet = () => {
     const {id} = useParams()
     const [tweet, setTweet] = useState(null)
+    const {user} = useContext(UserContext)
     useEffect(() => {
         fetchTweet()
         console.log("My array of tweet", tweet)
@@ -68,19 +72,39 @@ const Tweet = () => {
     }
 
     const formik = useFormik({
-        initialValues: {
-            text : ""  
+        initialValues : {
+            content: "",
         },
         onSubmit : values => {
-            console.log(values);
-            }
+            postComment(values)
+            console.log(JSON.stringify(values))
+        }
     })
+
+    const postComment = async (values) => {
+        const commentResponse = await fetch('http://localhost:5000/comments', {
+            method: 'post',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            credentials: 'include',
+            body: JSON.stringify({
+                content: values.content,
+                author: user._id,
+                tweet: tweet._id,
+            })
+        })   
+        const data = await commentResponse.json()
+        console.log(data);
+    }
 
     if (!tweet) {
         return (
             <p> Loading... </p>
         )
     }
+
+    console.log(formik.values);
 
     return (
         <Container>
@@ -102,11 +126,16 @@ const Tweet = () => {
                             <Card.Text>
                                 {tweet.content}
                             </Card.Text>  
-                            <div> {tweet.createdAt} </div>
+                            <div> {moment(tweet.createdAt).format('MMM-DD')} </div>
                             <div style={{marginBottom: '20px'}}> {tweet.retweets.length} Retweets </div>
                             <div style={{borderBottom:'1px solid lightgray', paddingBottom: '20px'}}>
-                                <img  style={{cursor : 'pointer', marginRight: '250px', marginLeft: '30px'}}  src="https://img.icons8.com/ios/18/000000/topic.png" alt="icon_comments"/>
-                                <img  style={{cursor : 'pointer'}}  src="https://img.icons8.com/fluency-systems-regular/18/000000/retweet.png" alt="icon_retweets"/>
+                            <div>
+                                            <img  style={{cursor : 'pointer',marginRight:"10px"}} src="https://img.icons8.com/ios/18/000000/topic.png" alt="icon_comments"/>
+                                            {tweet.comments.length}
+                                            <img  style={{cursor : 'pointer',marginLeft:"100px"}}  src="https://img.icons8.com/fluency-systems-regular/18/000000/retweet.png" alt="icon_retweets"/> 162
+                                            <img style={{cursor : 'pointer',marginLeft:"100px"}} src="https://img.icons8.com/material-outlined/18/000000/hearts.png" alt="icone_coeur"/> 23k
+                                            <img style={{cursor : 'pointer',marginLeft:"100px"}} src="https://img.icons8.com/external-bearicons-glyph-bearicons/18/000000/external-Share-social-media-bearicons-glyph-bearicons.png" alt="icon_share"/>
+                                        </div>
                             </div>                                                                         
                         </Card.Body>
                         <Margin style={{borderBottom : '1px solid lightgray'}}> 
@@ -116,10 +145,10 @@ const Tweet = () => {
                                 <Link to='/homePage'> <img src="https://img.icons8.com/ios-filled/35/000000/user-female-circle.png" alt="user profile"/></Link>
                                 <Input 
                                 placeholder="Tweet your reply"
-                                name = "text"
+                                name = "content"
                                 type= "text"
                                 onChange={formik.handleChange}
-                                value={formik.values.text}
+                                value={formik.values.content}
                                 /> 
                             </Flex>
                                 <Flex1>
@@ -131,7 +160,7 @@ const Tweet = () => {
                                     </div>
                                     <Button 
                                         type='submit' 
-                                        disabled={!formik.values.text} 
+                                        disabled={!formik.values.content} 
                                     > 
                                         Reply
                                     </Button>
@@ -144,7 +173,7 @@ const Tweet = () => {
                                 <div> 
                                     <img src="https://img.icons8.com/ios-filled/35/000000/user-female-circle.png" alt="user profile" style={{marginRight : '10px'}} /> 
                                 </div>
-                                <div> 
+                                <div style={{borderBottom : '1px solid lightgray', width : '500px', paddingTop : '20px'}}> 
                                     <div style={{display : 'flex'}}>
                                         <h6> {comment.author.name} </h6>
                                         <span> @{comment.author.pseudo} </span>

@@ -155,45 +155,16 @@ const CenterBar = () => {
                     </Form>
                 </Tweet>
                 <div className='d-flex flex-column align-items-center'>
-                                
-                                {tweets.map((tweet, index) =>
-                                    
-                                    <Card key={index} style={{ width: '100%' }}>         
-                                        <Hover> 
-                                            <Card.Body >
-                                                <Link to={`/tweets/${tweet._id}`} style={{ textDecoration: 'none', color : 'black'}}>     
-                                                    <Card.Title>{tweet.author.name} </Card.Title>
-                                                        <Card.Subtitle className="mb-2 text-muted">@{tweet.author.pseudo} </Card.Subtitle>    
-                                                            <Card.Text>
-                                                                {tweet.content}
-                                                            </Card.Text>  
-                                                </Link>                                 
-                                                <div>
-                                                    <img  style={{cursor : 'pointer'}} onClick={()=>setIndexContent(index)}  src="https://img.icons8.com/ios/18/000000/topic.png" alt="icon_comments"/>
-                                                    {tweet.comments.length}
-                                                </div>
-                                                         
-                                                <ModalComment
-                                                    closeModal={closeModalCom}
-                                                    showModal={index === indexContent}
-                                                    name = {user.name}
-                                                    pseudo={user.pseudo}
-                                                    content={tweet.content} 
-                                                    idTweet={tweet._id}                         
-                                                />
-                                                    
-                                            </Card.Body>
-                                        </Hover>         
-                                                
-                                    </Card>            
-                                )}  
                             
                         <> 
                             {tweets.map((tweet, index) => 
                                 <Card key={index} style={{ width:'100%'}}>
+                                    <Hover>
                                     <Card.Body >
+                                     
                                         <Card.Title className='d-flex justify-content-between' >
                                             <p>{tweet.author.name} <span className="fs-6 text-muted">@{tweet.author.pseudo} .</span><span className='fs-6 text-muted' style={{marginLeft:"10px"}}>{moment(tweet.createdAt).format('MMM-DD')}</span></p>
+                                    
                                             <DropdownButton variant='bg-light'  id="dropdown-item-button" title="...">
                                                 <Dropdown.ItemText></Dropdown.ItemText>
                                                 <Dropdown.Item onClick={() =>deleteTweet(tweet._id)} className='' as="button"><img className='mx-3' src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/20/fa314a/external-delete-multimedia-kiranshastry-lineal-kiranshastry.png" alt="icon"/>delete</Dropdown.Item>
@@ -206,8 +177,11 @@ const CenterBar = () => {
                                         </Card.Title>
                                         <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>    
                                             <Card.Text>
+                                            <Link to={`/tweets/${tweet._id}`} style={{ textDecoration: 'none', color : 'black'}}>
                                                 {tweet.content}
-                                            </Card.Text>                                  
+                                             </Link> 
+                                            </Card.Text> 
+                                                                            
                                         <div>
                                             <img  style={{cursor : 'pointer',marginRight:"10px"}} onClick={()=>setIndexContent(index)}  src="https://img.icons8.com/ios/18/000000/topic.png" alt="icon_comments"/>
                                             {tweet.comments.length}
@@ -224,6 +198,7 @@ const CenterBar = () => {
                                             idTweet={tweet._id}                         
                                         />
                                     </Card.Body>
+                                    </Hover>
                                 </Card>
                             )}           
                         </> 
