@@ -1,6 +1,6 @@
 import React from 'react';
-import NavBarVertical from '../components/NavBarVertical';
 import styled from 'styled-components'
+import Nav from '../components/Nav'
 
 const Parent = styled.div`
 {
@@ -13,6 +13,7 @@ const Parent = styled.div`
 `
 const Div1 = styled.div`
 {grid-area: 1 / 1 / 6 / 2; 
+border-right : 1px solid lightgray
 }
 `
 const Div2 = styled.div`
@@ -22,16 +23,16 @@ display : inline-block;
 }
 `
 const Div3 = styled.div`
-{   grid-area: 1 / 4 / 6 / 6;
-    padding:350px 150px ; 
-    border-right : 1px solid lightgray ;
-    margin-right : 50px; 
+{grid-area: 1 / 4 / 6 / 6;
+padding:350px 150px ; 
+// border-right : 1px solid lightgray ;
+margin-right : 50px; 
 }
 `
 const Title= styled.div`
-    display:flex;
-    justify-content : space-between;
-    align-items : center;
+display:flex;
+justify-content : space-between;
+align-items : center;
 `
 const Button = styled.button`
 { border-radius: 40px ;
@@ -64,8 +65,9 @@ const Messages = () => {
 
            <Parent>
                <Div1>
-                   <NavBarVertical/>
+                   <Nav/>
                </Div1>
+              
                 <Div2>
                     <Title>
                         <h4>Messages</h4> 
@@ -75,15 +77,15 @@ const Messages = () => {
                         </div>
                      
                     </Title>
-                       <h1>Send a message, get a message</h1>
-                       <p>Direct Messages are private conversations between you and other 
+                        <h1>Send a message, get a message</h1>
+                        <p>Direct Messages are private conversations between you and other 
                            people on Twitter. Share Tweets, media, and more!</p>
                         <Button> Start conversation</Button>
                 </Div2>
                 <Div3>
-                    <h2>You don’t have a message selected</h2>
-                    <p>Choose one from your existing messages, or start a new one.</p>
-                    <Button2> New Message</Button2>
+                        <h2>You don’t have a message selected</h2>
+                        <p>Choose one from your existing messages, or start a new one.</p>
+                        <Button2> New Message</Button2>
                 </Div3>
            </Parent>
            

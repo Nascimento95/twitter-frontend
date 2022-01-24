@@ -31,11 +31,11 @@ const Nav = () => {
             <NavIcon>
             <p> <Link to='/homePage'> <img src="https://img.icons8.com/color/25/000000/twitter--v1.png" alt="logo twitter" /> </Link> </p>
             <p><Link to='/homePage'><img src="https://img.icons8.com/ios-filled/25/000000/birdhouse.png" alt="maison"/>Home </Link></p>
-            <p><Link to='/homePage'><img src="https://img.icons8.com/ios/25/000000/hashtag.png" alt="explore"/>Explore</Link></p>
+            <p><Link to='/explore'><img src="https://img.icons8.com/ios/25/000000/hashtag.png" alt="explore"/>Explore</Link></p>
             <p><Link to='/homePage'><img src="https://img.icons8.com/external-dreamstale-lineal-dreamstale/25/000000/external-bell-interface-dreamstale-lineal-dreamstale.png" alt="notifications"/>Notifications  </Link> </p>
-            <p><Link to='/homePage'><img src="https://img.icons8.com/ios/25/000000/filled-message.png" alt="message"/>Messages </Link> </p>
-            <p><Link to='/homePage'><img src="https://img.icons8.com/material-outlined/25/000000/bookmark-ribbon--v1.png" alt='icon_bootmark'/>Bookmarks</Link> </p>
-            <p> <Link to='/homePage'> <img src="https://img.icons8.com/fluency-systems-regular/25/000000/overview-pages-3.png" alt="Lists"/>List </Link> </p>
+            <p><Link to='/messages'><img src="https://img.icons8.com/ios/25/000000/filled-message.png" alt="message"/>Messages </Link> </p>
+            <p><Link to='/bookmarks'><img src="https://img.icons8.com/material-outlined/25/000000/bookmark-ribbon--v1.png" alt='icon_bootmark'/>Bookmarks</Link> </p>
+            <p> <Link to='/list'> <img src="https://img.icons8.com/fluency-systems-regular/25/000000/overview-pages-3.png" alt="Lists"/>List </Link> </p>
             <p> <Link to='/userPage'> <img src="https://img.icons8.com/material-sharp/25/000000/user.png" alt="icon_profile"/>Profile </Link></p>
             <p><Link to='/homePage'> <img src="https://img.icons8.com/material-outlined/25/000000/connection-status-off.png" alt="more"/>More </Link></p>
             </NavIcon>
