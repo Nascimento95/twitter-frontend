@@ -88,7 +88,7 @@ const CardFollow = () => {
     return (
         <>
             <Container>
-                <h4> Who to follow </h4>
+                <h4 className='mt-3'> Who to follow </h4>
                 {selected.map(select => 
                     <>
                         <Link to='/' style={{ textDecoration: 'none' }}>

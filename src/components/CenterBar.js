@@ -115,7 +115,6 @@ const CenterBar = () => {
         <>
             <Border>
                 <Tweet> 
-                {moment().format('DD-MM-YY')}
                     <p> <Link to='/homePage'> <img src="https://img.icons8.com/ios-filled/35/000000/user-female-circle.png" alt="user profile"/></Link></p>
                     <Form onSubmit={formik.handleSubmit}> 
                         <Input 
